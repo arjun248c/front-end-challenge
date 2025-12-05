@@ -96,7 +96,13 @@ export default function Products() {
                                     </span>
                                 </td>
                                 <td style={{ padding: '1rem' }}>${Number(product.price).toFixed(2)}</td>
-                                <td style={{ padding: '1rem' }}>{product.stock}</td>
+                                <td style={{ padding: '1rem' }}>
+                                    {product.stock === 0 || product.stock === '0' ? (
+                                        <span style={{ color: '#ef4444', fontWeight: '500' }}>Out of Stock</span>
+                                    ) : (
+                                        product.stock
+                                    )}
+                                </td>
                                 <td style={{ padding: '1rem', textAlign: 'right' }}>
                                     <button onClick={() => handleOpenModal(product)} className="btn" style={{ padding: '0.5rem', marginRight: '0.5rem' }}>
                                         <Edit2 size={16} />
